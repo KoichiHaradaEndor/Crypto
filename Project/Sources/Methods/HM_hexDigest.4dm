@@ -1,6 +1,7 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 /**
-* This method returns HMAC digest.
+* This method calculates HMAC digest based on
+* the values stored in this object, then returns it.
 * Currently it works on macOS only.
 *
 * @return {Text} Digest text
@@ -18,6 +19,7 @@ Case of
 	: (This:C1470.data.key="")
 	: (This:C1470.data.algorithm=Null:C1517)
 	: (This:C1470.data.algorithm="")
+	: (This:C1470.data.algorithm="sha256") & (This:C1470.data.algorithm="sha512")
 	Else 
 		
 		$message_t:=This:C1470.data.message

@@ -3,7 +3,6 @@
 * This does not work.
 **********************/
 
-
 C_TEXT:C284($message_t)
 C_TEXT:C284($key_t)
 C_LONGINT:C283($algorithm_l)
@@ -11,11 +10,11 @@ C_TEXT:C284($hmac_t)
 
 C_BLOB:C604($key_x;$ipadKey_x;$opadKey_x;$message_x;$firstDigest_x)
 C_LONGINT:C283($blockSize_l;$realKeyLength_l;$i)
-C_TEXT:C284($firstDigest_t;$result_t)
+C_TEXT:C284($firstDigest_t;$result_t;$ipadKey_t;$opadKey_t)
 
 $message_t:="what do ya want for nothing?"
 $key_t:="Jefe"
-$algorithm_l:=SHA512 digest:K66:5
+$algorithm_l:=SHA256 digest:K66:4
 
 Case of 
 	: ($algorithm_l=SHA256 digest:K66:4)
@@ -52,22 +51,13 @@ For ($i;0;$blockSize_l-1)
 	
 End for 
 
-  // The first hash  H(K XOR ipad, M)
-CONVERT FROM TEXT:C1011($message_t;"UTF-8";$message_x)
+$ipadKey_t:=Convert to text:C1012($ipadKey_x;"UTF-8")
+$opadKey_t:=Convert to text:C1012($opadKey_x;"UTF-8")
 
-  // ipadkey concat message
-COPY BLOB:C558($message_x;$ipadKey_x;0;BLOB size:C605($ipadKey_x);BLOB size:C605($message_x))
-
-  // generate digest
-$firstDigest_t:=Generate digest:C1147($ipadKey_x;$algorithm_l)
-CONVERT FROM TEXT:C1011($firstDigest_t;"UTF-8";$firstDigest_x)
-
-  // The second digest H(K XOR opad, FirstDigest)
-
-  // opadkey concat firstDigest
-COPY BLOB:C558($firstDigest_x;$opadKey_x;0;BLOB size:C605($opadKey_x);BLOB size:C605($firstDigest_x))
+  // generate first digest
+$firstDigest_t:=Generate digest:C1147($ipadKey_t+$message_t;$algorithm_l)
 
   // generate digest
-$hmac_t:=Generate digest:C1147($opadKey_x;$algorithm_l)
+$hmac_t:=Generate digest:C1147($opadKey_t+$firstDigest_t;$algorithm_l)
 
 ASSERT:C1129($hmac_t=$result_t)
