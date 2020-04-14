@@ -4,14 +4,18 @@
 *
 * Required parameters are:
 * # Header
-* alg : "HS256" or "HS512", "none" is not supported for security reason.
+* alg : "HS256" or "HS512". "none" is not supported for security reason.
 * kid : A hint that points the key used to secure JWS data.
-* (Though "kid" is optional, to avoid attack, the use of this key is mandatory.)
+* (Though "kid" is optional according to specification, to avoid attack,
+* the use of this key is mandatory. When verifying JWS, alg and kid combination
+* must be checked.)
+* Mandatory check will be done when generating JWS, since the keys
+* may be added later.
 *
 * @param {Object} $1 Header
 * @param {Object} $2 Payload
 * @param {Text} $3 Key
-* @return {Object} $0 HMAC object
+* @return {Object} $0 JWS object
 * @author: HARADA Koichi
 */
 
