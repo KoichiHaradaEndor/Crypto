@@ -6,8 +6,6 @@
 * Only "sha256" (SHA256 digest) or "sha512" (SHA512 digest)
 * are supported.
 *
-* For security reason, "none" is not supported.
-*
 * @param {Longint} $1 Digest algorithm SHA256 and SHA512 can be used
 * @return {Object} $0 HMAC object
 * @author: HARADA Koichi
