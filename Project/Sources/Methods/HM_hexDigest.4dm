@@ -19,7 +19,7 @@ Case of
 	: (This:C1470.data.key="")
 	: (This:C1470.data.algorithm=Null:C1517)
 	: (This:C1470.data.algorithm="")
-	: (This:C1470.data.algorithm="sha256") & (This:C1470.data.algorithm="sha512")
+	: (This:C1470.data.algorithm#"sha256") & (This:C1470.data.algorithm#"sha512")
 	Else 
 		
 		$message_t:=This:C1470.data.message
