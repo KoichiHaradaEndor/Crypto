@@ -25,10 +25,10 @@ Case of
 		
 		Case of 
 			: ($algorithm_t="sha256")
-				This:C1470.data.algorithm:="sha256"
+				This:C1470.data.algorithm:=SHA256 digest:K66:4
 				
 			: ($algorithm_t="sha512")
-				This:C1470.data.algorithm:="sha512"
+				This:C1470.data.algorithm:=SHA512 digest:K66:5
 				
 			Else 
 				ASSERT:C1129(False:C215;"Given digest algorithm is not supported.")
@@ -41,10 +41,10 @@ Case of
 		
 		Case of 
 			: ($algorithm_l=SHA256 digest:K66:4)
-				This:C1470.data.algorithm:="sha256"
+				This:C1470.data.algorithm:=SHA256 digest:K66:4
 				
 			: ($algorithm_l=SHA512 digest:K66:5)
-				This:C1470.data.algorithm:="sha512"
+				This:C1470.data.algorithm:=SHA512 digest:K66:5
 				
 			Else 
 				ASSERT:C1129(False:C215;"Given digest algorithm is not supported.")
