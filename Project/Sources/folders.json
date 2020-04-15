@@ -8,12 +8,14 @@
 			"new HMAC"
 		]
 	},
+	"JWK": {},
 	"JWT": {
 		"methods": [
 			"JWT_generate",
 			"JWT_header",
 			"JWT_key",
 			"JWT_payload",
+			"JWT_verify",
 			"new JWT"
 		]
 	},

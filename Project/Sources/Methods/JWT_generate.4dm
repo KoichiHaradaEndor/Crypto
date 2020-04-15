@@ -3,6 +3,15 @@
 * This method generates digested JWT digest based on
 * the values stored in this object, then returns it.
 *
+* Required parameters are:
+* alg : "HS256" or "HS512". "none" is not supported for security reason.
+* kid : A hint that points the key used to secure JWT data.
+* (Though "kid" is optional by specification, to avoid attack,
+* the use of this key is mandatory. When verifying JWT, alg and kid combination
+* must be checked.)
+* Mandatory check and value verification will be done when generating final token,
+* since the parameters may be added or altered later.
+*
 * @return {Text} JWT text
 * @author HARADA Koichi
 */

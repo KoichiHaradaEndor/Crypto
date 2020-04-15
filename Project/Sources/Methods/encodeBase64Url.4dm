@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 /**
-* This method takes a text parameter, encode with URL safe Base64, then return it.
+* This method takes a text or blob parameter, encode with URL safe Base64, then return it.
 * URL safe Base64 is similar with Base64 except,
 * no padding "="
 * "+" => "-", "/" => "_"

@@ -11,7 +11,7 @@
 
 C_OBJECT:C1216($1)  // header
 C_OBJECT:C1216($2)  // payload
-C_TEXT:C284($3)  // key
+C_OBJECT:C1216($3)  // key
 C_OBJECT:C1216($0;$jwt_o)
 
 C_LONGINT:C283($numParam_l)
@@ -27,6 +27,7 @@ $jwt_o.generate:=Formula:C1597(JWT_generate )
 $jwt_o.header:=Formula:C1597(JWT_header )
 $jwt_o.key:=Formula:C1597(JWT_key )
 $jwt_o.payload:=Formula:C1597(JWT_payload )
+$jwt_o.verify:=Formula:C1597(JWT_verify )
 
   //#####
   // Parameters
