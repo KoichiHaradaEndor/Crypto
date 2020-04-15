@@ -5,14 +5,24 @@
 			"HM_hexDigest",
 			"HM_key",
 			"HM_message",
-			"hmac_bad",
-			"hmac_bad1",
 			"new HMAC"
 		]
 	},
-	"JWS": {
+	"JWT": {
 		"methods": [
-			"new JWS"
+			"JWT_generate",
+			"JWT_header",
+			"JWT_key",
+			"JWT_payload",
+			"new JWT"
+		]
+	},
+	"Utility": {
+		"methods": [
+			"decodeBase64Url",
+			"encodeBase64Url",
+			"hexCharToNum",
+			"hexToBlob"
 		]
 	},
 	"trash": {}
