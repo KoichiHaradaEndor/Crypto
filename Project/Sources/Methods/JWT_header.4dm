@@ -29,6 +29,8 @@ C_OBJECT:C1216($0)
 
 C_LONGINT:C283($type_l;$numParam_l)
 
+ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
+
 $type_l:=Value type:C1509($1)
 $numParam_l:=Count parameters:C259
 
