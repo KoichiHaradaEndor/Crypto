@@ -9,11 +9,16 @@
 			"new Hmac"
 		]
 	},
-	"JWK": {},
+	"JWK": {
+		"methods": [
+			"JWK_findKey"
+		]
+	},
 	"JWT": {
 		"methods": [
 			"compiler_JWT",
 			"JWT_generate",
+			"JWT_getEncodedHMAC",
 			"JWT_header",
 			"JWT_key",
 			"JWT_payload",

@@ -45,31 +45,12 @@ Case of
 		$key_t:=This:C1470.data.key.k
 		$alg_t:=This:C1470.data.header.alg
 		
-		Case of 
-			: ($alg_t="HS256")
-				$algorithm_l:=SHA256 digest:K66:4
-				
-			: ($alg_t="HS512")
-				$algorithm_l:=SHA512 digest:K66:5
-				
-		End case 
-		
 		  // Base64url encoding
 		$header_t:=encodeBase64Url ($header_t)
 		$payload_t:=encodeBase64Url ($payload_t)
 		
 		  // Signing
-		$hmac_t:=new Hmac ()\
-			.key($key_t)\
-			.message($header_t+"."+$payload_t)\
-			.algorithm($algorithm_l)\
-			.hexDigest()
-		
-		SET BLOB SIZE:C606($hmac_x;0)
-		$hmac_x:=hexToBlob ($hmac_t)
-		
-		$hmac_t:=encodeBase64Url ($hmac_x)
-		$jwt_t:=$header_t+"."+$payload_t+"."+$hmac_t
+		$jwt_t:=$header_t+"."+$payload_t+"."+JWT_getEncodedHMAC ($header_t+"."+$payload_t;$alg_t;$key_t)
 		
 End case 
 
