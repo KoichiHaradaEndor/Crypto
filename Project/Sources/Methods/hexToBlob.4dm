@@ -14,6 +14,8 @@ C_LONGINT:C283($textLength_l;$blobSize_l;$i)
 C_LONGINT:C283($upperByte_l;$lowerByte_l)
 C_TEXT:C284($upperByte_t;$lowerByte_t)
 
+ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
+
 $toConvert_t:=$1
 
 $textLength_l:=Length:C16($toConvert_t)

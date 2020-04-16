@@ -1,19 +1,20 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 /**
-* This method takes a text parameter which was encoded with URL safe Base64, then decode it.
-* Charset is fixed to UTF-8.
+* This method takes a text parameter which was encoded with URL safe Base64,
+* then decode it.
 *
 * @param {Text} $1 Text to decode
-* @return {Text} $0 Decoded text
+* @return {Blob} $0 Decoded blob
 * @author HARADA Koichi
 */
 
 C_TEXT:C284($1;$textToDecode_t)
-C_TEXT:C284($0;$decodedText_t)
+C_BLOB:C604($0;$decodedBlob_x)
 
-C_BLOB:C604($blobToDecode_x)
 C_LONGINT:C283($modulo_l)
 C_BOOLEAN:C305($proceed_b)
+
+ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
 
 $textToDecode_t:=$1
 $decodedText_t:=""
@@ -45,9 +46,8 @@ End case
 
 If ($proceed_b)
 	
-	BASE64 DECODE:C896($textToDecode_t;$blobToDecode_x)
-	$decodedText_t:=Convert to text:C1012($blobToDecode_x;"UTF-8")
+	BASE64 DECODE:C896($textToDecode_t;$decodedBlob_x)
 	
-	$0:=$decodedText_t
+	$0:=$decodedBlob_x
 	
 End if 

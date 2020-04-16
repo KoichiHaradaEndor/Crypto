@@ -1,6 +1,7 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 /**
-* This method takes a text parameter, encode with URL safe Base64, then return it.
+* This method takes a text or blob parameter,
+* encode with URL safe Base64, then return it.
 * URL safe Base64 is similar with Base64 except,
 * no padding "="
 * "+" => "-", "/" => "_"
@@ -17,7 +18,11 @@ C_TEXT:C284($0;$encodedText_t)
 C_BLOB:C604($blobToEncode_x)
 C_LONGINT:C283($type_l)
 
+ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
+
 $type_l:=Value type:C1509($1)
+
+ASSERT:C1129(($type_l=Is text:K8:3) | ($type_l=Is BLOB:K8:12);"Error in value type of $1")
 
 $encodedText_t:=""
 
