@@ -12,11 +12,16 @@
 */
 
 C_VARIANT:C1683($1)
+C_OBJECT:C1216($0)
 
 C_LONGINT:C283($algorithm_l;$type_l)
 C_TEXT:C284($algorithm_t)
 
+ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
+
 $type_l:=Value type:C1509($1)
+
+ASSERT:C1129(($type_l=Is text:K8:3) | ($type_l=Is real:K8:4) | ($type_l=Is longint:K8:6);"Error in value type of $1")
 
 Case of 
 	: ($type_l=Is text:K8:3)

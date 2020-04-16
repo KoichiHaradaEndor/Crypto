@@ -1,19 +1,24 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 /**
-* This method creates and return HMAC object.
+* This method creates and returns HMAC object.
 * 
 * For digest parameter, only "sha256" (SHA256 digest) or
 * "sha512" (SHA512 digest) are supported.
 *
+* The key parameter can be of type text or blob.
+* When text is given, it must be Base64url encoded.
+* When blob is given, it will be encoded with Base64url
+* and be sotred.
+*
 * @param {Text} $1 Message to hash
-* @param {Text} $2 Key
+* @param {Variant} $2 Key to set, of type text or blob
 * @param {Variant} $3 Digest algorithm SHA256 and SHA512 can be used
 * @return {Object} $0 HMAC object
 * @author: HARADA Koichi
 */
 
-C_TEXT:C284($1)  //Message
-C_TEXT:C284($2)  // Key
+C_VARIANT:C1683($1)  //Message
+C_VARIANT:C1683($2)  // Key
 C_VARIANT:C1683($3)  // Algorithm
 C_OBJECT:C1216($0;$hmac_o)
 

@@ -17,6 +17,8 @@ C_LONGINT:C283($0;$converted_l)
 
 C_LONGINT:C283($charCode_l)
 
+ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
+
 $hex_t:=$1
 $converted_l:=0
 
