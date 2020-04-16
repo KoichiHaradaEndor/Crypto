@@ -1,6 +1,7 @@
 ﻿{
 	"HMAC": {
 		"methods": [
+			"compiler_HMAC",
 			"HM_algorithm",
 			"HM_hexDigest",
 			"HM_key",
@@ -17,8 +18,19 @@
 			"new JWT"
 		]
 	},
+	"Test": {
+		"groups": [
+			"Test HMAC"
+		]
+	},
+	"Test HMAC": {
+		"methods": [
+			"Test_HMAC"
+		]
+	},
 	"Utility": {
 		"methods": [
+			"compiler_utility",
 			"decodeBase64Url",
 			"encodeBase64Url",
 			"hexCharToNum",
