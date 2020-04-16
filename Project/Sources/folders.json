@@ -6,21 +6,25 @@
 			"HM_hexDigest",
 			"HM_key",
 			"HM_message",
-			"new HMAC"
+			"new Hmac"
 		]
 	},
+	"JWK": {},
 	"JWT": {
 		"methods": [
+			"compiler_JWT",
 			"JWT_generate",
 			"JWT_header",
 			"JWT_key",
 			"JWT_payload",
+			"JWT_verify",
 			"new JWT"
 		]
 	},
 	"Test": {
 		"groups": [
-			"Test HMAC"
+			"Test HMAC",
+			"Test JWT"
 		]
 	},
 	"Test HMAC": {
@@ -28,8 +32,14 @@
 			"Test_HMAC"
 		]
 	},
+	"Test JWT": {
+		"methods": [
+			"Test_JWT"
+		]
+	},
 	"Utility": {
 		"methods": [
+			"compareCaseSensitive",
 			"compiler_utility",
 			"decodeBase64Url",
 			"encodeBase64Url",

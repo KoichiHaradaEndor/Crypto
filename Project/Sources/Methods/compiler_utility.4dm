@@ -1,4 +1,7 @@
 //%attributes = {"invisible":true}
+C_TEXT:C284(compareCaseSensitive ;$1;$2)
+C_BOOLEAN:C305(compareCaseSensitive ;$0)
+
 C_TEXT:C284(decodeBase64Url ;$1)
 C_BLOB:C604(decodeBase64Url ;$0)
 
