@@ -4,7 +4,7 @@
 * When it is already set, it is replaced with the new key.
 *
 * The key parameter can be of type text or blob.
-* When text is given, it must be Base64url encoded.
+* When text is given, it is stored as is.
 * When blob is given, it will be encoded with Base64url
 * and be sotred. Then the key will be decoded when
 * it is used.
@@ -28,9 +28,15 @@ ASSERT:C1129(($type_l=Is text:K8:3) | ($type_l=Is BLOB:K8:12);"Error in value ty
 Case of 
 	: ($type_l=Is text:K8:3)
 		This:C1470.data.key:=$1
+		This:C1470.data.keyEncoded:=False:C215
 		
 	: ($type_l=Is BLOB:K8:12)
 		This:C1470.data.key:=encodeBase64Url ($1)
+		This:C1470.data.keyEncoded:=True:C214
+		
+	Else 
+		This:C1470.data.key:=Null:C1517
+		This:C1470.data.keyEncoded:=Null:C1517
 		
 End case 
 

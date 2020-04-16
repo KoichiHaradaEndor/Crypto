@@ -43,7 +43,7 @@ $target_t:="5bdcc146bf60754e6a042426089575c7"\
 
 $result_t:=new Hmac ()\
 .algorithm(SHA256 digest:K66:4)\
-.key(encodeBase64Url ($key_t))\
+.key($key_t)\
 .message($message_t)\
 .hexDigest()
 
@@ -56,7 +56,7 @@ $target_t:="164b7a7bfcf819e2e395fbe73b56e0a3"\
 
 $result_t:=new Hmac ()\
 .algorithm(SHA512 digest:K66:5)\
-.key(encodeBase64Url ($key_t))\
+.key($key_t)\
 .message($message_t)\
 .hexDigest()
 

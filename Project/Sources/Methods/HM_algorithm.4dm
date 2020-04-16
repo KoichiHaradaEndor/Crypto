@@ -36,7 +36,7 @@ Case of
 				This:C1470.data.algorithm:=SHA512 digest:K66:5
 				
 			Else 
-				ASSERT:C1129(False:C215;"Given digest algorithm is not supported.")
+				This:C1470.data.algorithm:=Null:C1517
 				
 		End case 
 		
@@ -52,9 +52,22 @@ Case of
 				This:C1470.data.algorithm:=SHA512 digest:K66:5
 				
 			Else 
-				ASSERT:C1129(False:C215;"Given digest algorithm is not supported.")
+				This:C1470.data.algorithm:=Null:C1517
 				
 		End case 
+		
+End case 
+
+  // set HAMC block size
+Case of 
+	: (This:C1470.data.algorithm=SHA256 digest:K66:4)
+		This:C1470.data.blocksize:=64
+		
+	: (This:C1470.data.algorithm=SHA512 digest:K66:5)
+		This:C1470.data.blocksize:=128
+		
+	Else 
+		This:C1470.data.blocksize:=Null:C1517
 		
 End case 
 

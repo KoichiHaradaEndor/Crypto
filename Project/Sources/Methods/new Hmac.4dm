@@ -2,17 +2,14 @@
 /**
 * This method creates and returns HMAC object.
 * 
-* For digest parameter, only "sha256" (SHA256 digest) or
-* "sha512" (SHA512 digest) are supported.
+* For accepted digest parameter list, please refer to
+* HM_algorithm.
 *
 * The key parameter can be of type text or blob.
-* When text is given, it must be Base64url encoded.
-* When blob is given, it will be encoded with Base64url
-* and be sotred.
 *
-* @param {Text} $1 Message to hash
+* @param {Variant} $1 Message to hash, of type text or blob
 * @param {Variant} $2 Key to set, of type text or blob
-* @param {Variant} $3 Digest algorithm SHA256 and SHA512 can be used
+* @param {Variant} $3 Digest algorithm, of type text or longint
 * @return {Object} $0 HMAC object
 * @author: HARADA Koichi
 */
