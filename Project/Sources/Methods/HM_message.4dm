@@ -59,6 +59,11 @@ Case of
 		
 		This:C1470.data.messageEncoded:=True:C214
 		
+	Else 
+		
+		This:C1470.data.message:=Null:C1517
+		This:C1470.data.messageEncoded:=Null:C1517
+		
 End case 
 
 $0:=This:C1470
