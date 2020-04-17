@@ -1,13 +1,17 @@
 ﻿{
-	"テーブル": {},
-	"デフォルト": {
-		"groups": [
-			"テーブル",
-			"フォーム",
-			"プロジェクトメソッド"
+	"Test_all": {
+		"methods": [
+			"Test_HMAC",
+			"Test_JWK",
+			"Test_JWT"
 		]
 	},
-	"フォーム": {},
-	"プロジェクトメソッド": {},
+	"Utility": {
+		"methods": [
+			"hexCharToNum",
+			"hexToBlob",
+			"toIntDate"
+		]
+	},
 	"trash": {}
 }
