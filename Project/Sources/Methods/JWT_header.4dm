@@ -24,7 +24,7 @@
 */
 
 C_VARIANT:C1683($1)
-C_TEXT:C284($2;$headerValue_t)
+C_TEXT:C284($2)
 C_OBJECT:C1216($0)
 
 C_LONGINT:C283($type_l;$numParam_l)

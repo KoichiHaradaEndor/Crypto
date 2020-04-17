@@ -28,22 +28,6 @@
 			"new JWT"
 		]
 	},
-	"Test": {
-		"groups": [
-			"Test HMAC",
-			"Test JWT"
-		]
-	},
-	"Test HMAC": {
-		"methods": [
-			"Test_HMAC"
-		]
-	},
-	"Test JWT": {
-		"methods": [
-			"Test_JWT"
-		]
-	},
 	"Utility": {
 		"methods": [
 			"base64UrlDecode",

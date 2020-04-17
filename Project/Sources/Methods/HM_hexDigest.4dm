@@ -9,7 +9,7 @@
 
 C_TEXT:C284($0;$hmac_t)
 
-C_TEXT:C284($message_t;$key_t;$command_t;$error_t)
+C_TEXT:C284($message_t;$key_t)
 C_LONGINT:C283($algorithm_l;$blockSize_l)
 C_BLOB:C604($key_x;$message_x)
 

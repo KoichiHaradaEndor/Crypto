@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true,"preemptive":"capable"}
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
 /**
 * This method creates and returns JWK object.
 *
@@ -32,7 +32,7 @@ If (Storage:C1525.keys=Null:C1517)
 		
 	End use   // /Use (Storage)
 	
-	$keyFile_o:=Folder:C1567(fk database folder:K87:14).file("jwt.key")
+	$keyFile_o:=Folder:C1567(fk database folder:K87:14;*).file("jwt.key")
 	If ($keyFile_o.exists)
 		
 		$keysJson_t:=$keyFile_o.getText()

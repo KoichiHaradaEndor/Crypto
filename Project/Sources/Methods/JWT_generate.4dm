@@ -21,10 +21,7 @@
 
 C_TEXT:C284($0;$jwt_t)
 
-C_TEXT:C284($header_t;$payload_t;$key_t;$alg_t;$hmac_t)
-C_LONGINT:C283($algorithm_l)
-C_OBJECT:C1216($hmac_o)
-C_BLOB:C604($key_x;$hmac_x)
+C_TEXT:C284($header_t;$payload_t;$key_t;$alg_t)
 
 Case of 
 	: (This:C1470.data.header=Null:C1517)
@@ -42,8 +39,8 @@ Case of
 		$alg_t:=This:C1470.data.header.alg
 		
 		  // Base64url encoding
-		$header_t:=base64UrlEncode($header_t)
-		$payload_t:=base64UrlEncode($payload_t)
+		$header_t:=base64UrlEncode ($header_t)
+		$payload_t:=base64UrlEncode ($payload_t)
 		
 		  // Signing
 		$jwt_t:=$header_t+"."+$payload_t+"."+JWT_getEncodedHMAC ($header_t+"."+$payload_t;$alg_t;$key_t)
