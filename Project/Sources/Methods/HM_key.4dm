@@ -31,7 +31,7 @@ Case of
 		This:C1470.data.keyEncoded:=False:C215
 		
 	: ($type_l=Is BLOB:K8:12)
-		This:C1470.data.key:=encodeBase64Url ($1)
+		This:C1470.data.key:=base64UrlEncode($1)
 		This:C1470.data.keyEncoded:=True:C214
 		
 	Else 

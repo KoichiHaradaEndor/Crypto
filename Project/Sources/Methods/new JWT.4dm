@@ -4,7 +4,7 @@
 *
 * @param {Object} $1 Header
 * @param {Object} $2 Payload
-* @param {Text} $3 Key
+* @param {Object} $3 Key
 * @return {Object} $0 JWS object
 * @author: HARADA Koichi
 */

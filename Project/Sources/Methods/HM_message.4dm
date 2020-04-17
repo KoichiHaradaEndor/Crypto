@@ -47,13 +47,13 @@ Case of
 		
 		If (This:C1470.data.message=Null:C1517)
 			
-			This:C1470.data.message:=encodeBase64Url ($1)
+			This:C1470.data.message:=base64UrlEncode ($1)
 			
 		Else 
 			
-			$message_x:=decodeBase64Url (This:C1470.data.message)
+			$message_x:=base64UrlDecode (This:C1470.data.message)
 			COPY BLOB:C558($1;$message_x;0;BLOB size:C605($message_x);BLOB size:C605($1))
-			This:C1470.data.message:=encodeBase64Url ($message_x)
+			This:C1470.data.message:=base64UrlEncode ($message_x)
 			
 		End if 
 		

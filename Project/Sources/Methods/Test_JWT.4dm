@@ -1,23 +1,43 @@
 //%attributes = {"invisible":true}
   // https://jwt.io/
 
-C_OBJECT:C1216($jwt_o)
+C_OBJECT:C1216($jwt_o;$key_o;$payload_o)
 C_TEXT:C284($jwt_t)
+C_BOOLEAN:C305($verified_b)
 
-$jwt_o:=new JWT ()
+$jwt_t:=new JWT ()\
+.header("typ";"JWT")\
+.payload("iss";"joe")\
+.payload("exp";1300819380)\
+.payload("http://example.com/is_root";True:C214)\
+.key(new JWK ().find("HS256";"For testing purpose"))\
+.generate()
 
-$jwt_o.header("typ";"JWT")
+  //$payload_o:=New object()
+$verified_b:=new JWT ()\
+.verify($jwt_t;"HS256";$payload_o)
 
-$jwt_o.payload("iss";"joe")
-$jwt_o.payload("exp";1300819380)
-$jwt_o.payload("http://example.com/is_root";True:C214)
 
-$jwt_o.key(New object:C1471(\
-"kty";"oct";\
-"alg";"HS256";\
-"kid";"test key id";\
-"k";"AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow"\
-))
 
-$jwt_t:=$jwt_o.generate()
-SET TEXT TO PASTEBOARD:C523($jwt_t)
+
+If (False:C215)
+	
+	$jwt_o:=new JWT ()
+	
+	$jwt_o.header("typ";"JWT")
+	
+	$jwt_o.payload("iss";"joe")
+	$jwt_o.payload("exp";1300819380)
+	$jwt_o.payload("http://example.com/is_root";True:C214)
+	
+	$jwt_o.key(New object:C1471(\
+		"kty";"oct";\
+		"alg";"HS256";\
+		"kid";"test key id";\
+		"k";"AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow"\
+		))
+	
+	$jwt_t:=$jwt_o.generate()
+	
+End if 
+

@@ -27,7 +27,7 @@ Case of
 		If (This:C1470.data.messageEncoded)
 			
 			  // The message was Base64url encoded
-			$message_x:=decodeBase64Url (This:C1470.data.message)
+			$message_x:=base64UrlDecode (This:C1470.data.message)
 			
 		Else 
 			
@@ -41,7 +41,7 @@ Case of
 		If (This:C1470.data.keyEncoded)
 			
 			  // The key was Base64url encoded
-			$key_x:=decodeBase64Url (This:C1470.data.key)
+			$key_x:=base64UrlDecode (This:C1470.data.key)
 			
 		Else 
 			
