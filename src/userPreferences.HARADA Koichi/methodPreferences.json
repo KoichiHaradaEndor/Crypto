@@ -1,0 +1,236 @@
+﻿{
+	"Sources/Methods/HM_algorithm.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T23:33:08.601Z"
+	},
+	"Sources/Methods/new HMAC.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T23:16:28.615Z"
+	},
+	"Sources/Methods/HM_hexDigest.4dm": {
+		"startSelection": 25,
+		"endSelection": 25,
+		"firstSelectedLine": 10,
+		"lastSelectedLine": 10,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:09:07.284Z"
+	},
+	"Sources/Methods/hexToBlob.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T05:02:07.126Z"
+	},
+	"Sources/Methods/hexCharToNum.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T05:01:48.847Z"
+	},
+	"Sources/Methods/new JWT.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:04:57.554Z"
+	},
+	"Sources/Methods/JWT_header.4dm": {
+		"startSelection": 9,
+		"endSelection": 9,
+		"firstSelectedLine": 25,
+		"lastSelectedLine": 25,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:09:56.992Z"
+	},
+	"Sources/Methods/JWT_payload.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T01:01:52.600Z"
+	},
+	"Sources/Methods/JWT_key.4dm": {
+		"startSelection": 24,
+		"endSelection": 24,
+		"firstSelectedLine": 7,
+		"lastSelectedLine": 7,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T01:36:36.106Z"
+	},
+	"Sources/Methods/JWT_generate.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 23,
+		"lastSelectedLine": 23,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:09:47.575Z"
+	},
+	"Sources/Methods/HM_message.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T23:15:31.394Z"
+	},
+	"Sources/Methods/HM_key.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T23:13:54.603Z"
+	},
+	"Sources/Methods/JWT_verify.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 39,
+		"lastSelectedLine": 39,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T05:47:17.190Z"
+	},
+	"Sources/Methods/Test_HMAC.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 3,
+		"lastSelectedLine": 3,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:10:04.987Z"
+	},
+	"Sources/Methods/compiler_HMAC.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T05:05:03.981Z"
+	},
+	"Sources/Methods/compiler_utility.4dm": {
+		"startSelection": 23,
+		"endSelection": 23,
+		"firstSelectedLine": 17,
+		"lastSelectedLine": 17,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T04:56:00.404Z"
+	},
+	"Sources/Methods/compiler_JWT.4dm": {
+		"startSelection": 24,
+		"endSelection": 24,
+		"firstSelectedLine": 15,
+		"lastSelectedLine": 15,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T05:51:58.233Z"
+	},
+	"Sources/Methods/Test_JWT.4dm": {
+		"startSelection": 15,
+		"endSelection": 15,
+		"firstSelectedLine": 2,
+		"lastSelectedLine": 2,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:10:11.577Z"
+	},
+	"Sources/Methods/compareCaseSensitive.4dm": {
+		"startSelection": 25,
+		"endSelection": 25,
+		"firstSelectedLine": 15,
+		"lastSelectedLine": 15,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T08:10:43.252Z"
+	},
+	"Sources/Methods/JWT_getEncodedHMAC.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:04:57.549Z"
+	},
+	"Sources/Methods/base64UrlEncode.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 3,
+		"lastSelectedLine": 3,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T05:06:40.592Z"
+	},
+	"Sources/Methods/base64UrlDecode.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-16T05:05:03.982Z"
+	},
+	"Sources/Methods/new JWK.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 0,
+		"lastSelectedLine": 0,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T06:15:24.169Z"
+	},
+	"Sources/Methods/JWK_find.4dm": {
+		"startSelection": 0,
+		"endSelection": 0,
+		"firstSelectedLine": 24,
+		"lastSelectedLine": 24,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T02:05:33.215Z"
+	},
+	"Sources/Methods/compiler_JWK.4dm": {
+		"startSelection": 13,
+		"endSelection": 13,
+		"firstSelectedLine": 3,
+		"lastSelectedLine": 3,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T02:09:42.346Z"
+	},
+	"Sources/Methods/toIntDate.4dm": {
+		"startSelection": 12,
+		"endSelection": 12,
+		"firstSelectedLine": 41,
+		"lastSelectedLine": 41,
+		"folding": [],
+		"bookmarks": [],
+		"stamp": "2020-04-17T04:56:22.820Z"
+	}
+}

@@ -1,0 +1,10 @@
+﻿[
+	{
+		"type": 66,
+		"formula": "$payload_o"
+	},
+	{
+		"type": 66,
+		"formula": "$verified_b"
+	}
+]
