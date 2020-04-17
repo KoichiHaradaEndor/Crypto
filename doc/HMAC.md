@@ -13,7 +13,7 @@
 
 HMAC object is used to sign a `message` with the specified `key` and `algorothm`.
 
-HMAC ＝ Hash-based Message Authentication Code
+HMAC: Hash-based Message Authentication Code
 
 The constructor creates and returns HMAC object. Then using member functions, you can add parameters and generate signed message.
 
@@ -49,10 +49,9 @@ $hmac_o.message("Sign this text")
 $signed_t:=$hmac_o.hexDigest()
 ```
 
-Call chain eample:
+Call chain example:
 
 ```4D
-C_OBJECT($hmac_o)
 C_TEXT($signed_t)
 $signed_t:=new HMAC()\
     .algorithm("sha256")\
@@ -78,7 +77,7 @@ Only "sha256" (SHA256 digest) or "sha512" (SHA512 digest) are supported.
 
 ---
 
-`HMAC` **HMAC.hexDigest** ()
+`text` **HMAC.hexDigest** ()
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
@@ -110,7 +109,7 @@ The key parameter can be of type text or blob.
 |message|text or blob|->|Message to be signed|required|
 |return|Object|<-|HMAC object||
 
-This method is used to specify message to be signed.
+This method is used to specify `message` to be signed.
 
 When a message is already set, given text is appended to the original message.
 
