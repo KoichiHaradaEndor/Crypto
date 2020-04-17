@@ -1,5 +1,3 @@
-Is is under development.
-
 # Crypto
 
 ## Overview
@@ -9,6 +7,8 @@ Is is under development.
 ## Description
 
 By Installing this component into your 4D project, several methods which relate to encryption are added to your 4D project.
+
+Especially, this component is intended to use with HTTPServer component, and has a roll to generate and verify JWT.
 
 ## Requirement
 
