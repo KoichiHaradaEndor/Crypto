@@ -1,21 +1,29 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 /**
+* This method creates and returns JWK object.
 *
+* The JWK set is stored in Storage.
+* If it is not exists, the key set will be loaded from file
+* named "jwk.key" stored in the database folder.
+*
+* @return {Object} JWK object
+* @author HARADA Koichi
 */
 
-C_TEXT:C284($1;$alg_t)
-C_TEXT:C284($2;$kid_t)
-C_OBJECT:C1216($0;$keyFound_o)
+C_OBJECT:C1216($0;$jwk_o)
 
-C_OBJECT:C1216($keyFile_o;$keys_o;$key_o)
+C_OBJECT:C1216($keyFile_o;$keys_o;$eachKeyItem_o)
 C_TEXT:C284($keysJson_t)
-C_COLLECTION:C1488($keys_c;$queryResult_c)
+C_COLLECTION:C1488($keys_c)
 C_LONGINT:C283($i)
 
-$alg_t:=$1
-$kid_t:=$2
-$keyFound_o:=Null:C1517
+$jwk_o:=New object:C1471()
 
+$jwk_o.find:=Formula:C1597(JWK_find )
+
+  //#####
+  // Initialize Storage.keys collection
+  //#####
 If (Storage:C1525.keys=Null:C1517)
 	
 	Use (Storage:C1525)
@@ -36,15 +44,15 @@ If (Storage:C1525.keys=Null:C1517)
 				
 				Use (Storage:C1525.keys)
 					
-					For each ($key_o;$keys_c)
+					For each ($eachKeyItem_o;$keys_c)
 						
 						ARRAY TEXT:C222($propertyNames_at;0)
-						OB GET PROPERTY NAMES:C1232($key_o;$propertyNames_at)
+						OB GET PROPERTY NAMES:C1232($eachKeyItem_o;$propertyNames_at)
 						
 						Storage:C1525.keys.push(New shared object:C1526())
 						For ($i;1;Size of array:C274($propertyNames_at))
 							
-							Storage:C1525.keys[Storage:C1525.keys.length-1][$propertyNames_at{$i}]:=$key_o[$propertyNames_at{$i}]
+							Storage:C1525.keys[Storage:C1525.keys.length-1][$propertyNames_at{$i}]:=$eachKeyItem_o[$propertyNames_at{$i}]
 							
 						End for 
 						
@@ -60,12 +68,4 @@ If (Storage:C1525.keys=Null:C1517)
 	
 End if   // /If (Storage.keys=Null)
 
-$queryResult_c:=Storage:C1525.keys.query("alg = :1 && kid = :2";$alg_t;$kid_t)
-If ($queryResult_c.length=1)
-	
-	  // to avoid editing, return copy of the object
-	$keyFound_o:=OB Copy:C1225($queryResult_c[0])
-	
-End if 
-
-$0:=$keyFound_o
+$0:=$jwk_o

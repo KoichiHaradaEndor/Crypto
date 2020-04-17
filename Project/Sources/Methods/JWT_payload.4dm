@@ -8,7 +8,7 @@
 * @param {Object} $1 payload : Object that contains full payload information
 * @retun {Object} $0 This object
 *
-* JWT.header(payloadName; payloadValue)
+* JWT.payload(payloadName; payloadValue)
 * @param {Text} $1 payloadName : Payload parameter name to set
 * @param {Variant} $2 payloadValue : Payload parameter value to set
 * @retun {Object} $0 This object

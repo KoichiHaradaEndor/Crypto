@@ -15,7 +15,7 @@ C_TEXT:C284($2;$algorithm_t)
 C_TEXT:C284($3;$key_t)
 C_TEXT:C284($0;$hmac_t)
 
-C_BLOB:C604($hmac_x)
+C_BLOB:C604($key_x;$hmac_x)
 C_LONGINT:C283($algorithm_l)
 
 $input_t:=$1
@@ -32,8 +32,9 @@ Case of
 		
 End case 
 
+$key_x:=base64UrlDecode ($key_t)
 $hmac_t:=new Hmac ()\
-.key($key_t)\
+.key($key_x)\
 .message($input_t)\
 .algorithm($algorithm_l)\
 .hexDigest()
@@ -41,4 +42,4 @@ $hmac_t:=new Hmac ()\
 SET BLOB SIZE:C606($hmac_x;0)
 $hmac_x:=hexToBlob ($hmac_t)
 
-$0:=encodeBase64Url ($hmac_x)
+$0:=base64UrlEncode ($hmac_x)

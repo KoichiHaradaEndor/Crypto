@@ -11,7 +11,9 @@
 	},
 	"JWK": {
 		"methods": [
-			"JWK_findKey"
+			"compiler_JWK",
+			"JWK_find",
+			"new JWK"
 		]
 	},
 	"JWT": {
@@ -44,10 +46,10 @@
 	},
 	"Utility": {
 		"methods": [
+			"base64UrlDecode",
+			"base64UrlEncode",
 			"compareCaseSensitive",
 			"compiler_utility",
-			"decodeBase64Url",
-			"encodeBase64Url",
 			"hexCharToNum",
 			"hexToBlob"
 		]

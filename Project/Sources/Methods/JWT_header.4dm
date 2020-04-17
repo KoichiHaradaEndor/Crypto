@@ -4,8 +4,8 @@
 *
 * Important note:
 * The 'alg' parameter in the JWT header will be set by
-* this component by following the description of
-* key parameter. The key parameter is a JWK object
+* this component by looking up the description of
+* key parameter. The key parameter is a JWK type key
 * that contains 'alg' parameter, then it will be used.
 * So if 'alg' is set by this function, it will be overwritten.
 *
@@ -32,6 +32,7 @@ C_LONGINT:C283($type_l;$numParam_l)
 ASSERT:C1129(Count parameters:C259>=1;"Lack of parameters")
 
 $type_l:=Value type:C1509($1)
+
 $numParam_l:=Count parameters:C259
 
 If (This:C1470.data.header=Null:C1517)
