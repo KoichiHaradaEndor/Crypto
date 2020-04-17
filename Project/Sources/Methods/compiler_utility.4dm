@@ -13,3 +13,7 @@ C_LONGINT:C283(hexCharToNum ;$0)
 
 C_TEXT:C284(hexToBlob ;$1)
 C_BLOB:C604(hexToBlob ;$0)
+
+C_DATE:C307(toIntDate ;$1)
+C_TIME:C306(toIntDate ;$2)
+C_LONGINT:C283(toIntDate ;$0)

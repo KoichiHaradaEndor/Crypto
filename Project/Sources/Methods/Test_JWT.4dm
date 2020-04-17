@@ -4,16 +4,20 @@
 C_OBJECT:C1216($jwt_o;$key_o;$payload_o)
 C_TEXT:C284($jwt_t)
 C_BOOLEAN:C305($verified_b)
+C_LONGINT:C283($intDate_l)
+
+$intDate_l:=toIntDate ()
 
 $jwt_t:=new JWT ()\
 .header("typ";"JWT")\
 .payload("iss";"joe")\
-.payload("exp";1300819380)\
+.payload("exp";$intDate_l+100)\
+.payload("nbf";$intDate_l-100)\
 .payload("http://example.com/is_root";True:C214)\
 .key(new JWK ().find("HS256";"For testing purpose"))\
 .generate()
 
-  //$payload_o:=New object()
+$payload_o:=New object:C1471()
 $verified_b:=new JWT ()\
 .verify($jwt_t;"HS256";$payload_o)
 
