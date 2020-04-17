@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 /**
-* This method calculates HMAC digest based on
+* This method executes HMAC signing based on
 * the values stored in this object, then returns it.
 *
 * @return {Text} Digest text
