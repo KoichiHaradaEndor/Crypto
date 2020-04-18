@@ -18,6 +18,10 @@ Especially, this component is intended to use with HTTPServer component, and has
 
 This is a 4D component, so you should build this source as 4D component and place it in the "Components" folder of your project root.
 
+## Usage
+
+Please refer to the [wikis](https://github.com/KoichiHaradaEndor/Crypto/wiki).
+
 ## License
 
 Please refer to "LICENSE" file.
