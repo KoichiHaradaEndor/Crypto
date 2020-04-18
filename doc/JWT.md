@@ -8,7 +8,7 @@
 |-----|-----|-----|-----|-----|
 |header|object|->|JWT header|optional|
 |payload|object|->|JWT payload|optional|
-|key|object|->|Signing algorithm|optional|
+|key|object|->|Key used to sign the JWT|optional|
 |return|object|<-|JWT object||
 
 JWT object is used to generate JSON Web Token.
@@ -39,11 +39,11 @@ Call chain example:
 ```4D
 C_TEXT($token_t)
 $token_t:=new JWT ()\
-    header("typ";"JWT")\
-    payload("iss";"joe")\
-    payload("http://example.com/is_root";True)\
-    key($key_o)\
-    generate()
+    .header("typ";"JWT")\
+    .payload("iss";"joe")\
+    .payload("http://example.com/is_root";True)\
+    .key($key_o)\
+    .generate()
 ```
 
 If you are familiar with JWT spec, you may think `alg` header parameter is missing in the above example and it's an error. It is explained in the description of the JWT.header function.
@@ -61,56 +61,117 @@ $verified_b:=$jwt_o.verify($token_t;"HS256")
 
 ## Member function
 
-`text` **JWT.generate** (algorithm)
+`text` **JWT.generate** ()
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
 |return|text|<-|Signed JSON Web Token||
 
-This method sets `algorithm` parameter which is used when signing the message.
-
-It accepts text literal or 4D constant (Digest theme).
-
-Only "sha256" (SHA256 digest) or "sha512" (SHA512 digest) are supported.
+This method generates signed JWT based on the values stored in this object, then returns it.
 
 ---
 
-`text` **HMAC.hexDigest** ()
+`JWT` **JWT.header** (header)
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
-|return|text|<-|Signed message||
+|header|object|->|Object that contains full header information|required|
+|return|object|<-|JWT object||
 
-This method executes HMAC signing based on the values stored in the HMAC object, then returns it.
+`JWT` **JWT.header** (headerName; headerValue)
+
+|Name|Type||Description||
+|-----|-----|-----|-----|-----|
+|headerName|text|->|Header parameter name to set|required|
+|headerValue|text|->|Header parameter value to set|required|
+|return|object|<-|JWT object||
+
+Used to set JWT header to JWT object.
+
+This function has two forms. One is accepting an object that contains full JWT header information. And the other is, you can pass JWT header field one by one.
+
+When the same header field name is passed multiple times, the latter value is stored.
+
+**Important note**:
+The `alg`  and `kid` parameter in the JWT header will be set by this component by looking up the description of key parameter. The key parameter is a JWK type key that contains `alg` and `kid` parameter, then it will be used. So if `alg` or `kid`  is set by this function, it will be overwritten.
 
 ---
 
-`HMAC` **HMAC.key** (key)
+`JWT` **JWT.key** (key)
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
-|key|text or blob|->|Key used for signing|required|
-|return|Object|<-|HMAC object||
+|key|object|->|Key used for signing|required|
+|return|object|<-|JWT object||
 
 This method is used to set a `key` that will be used for signing.
 
 When it is already set, it is replaced with the new key.
 
-The key parameter can be of type text or blob.
+The key is an object retrieved with `JWK.find()` function.
 
 ---
 
-`HMAC` **HMAC.message** (message)
+`JWT` **JWT.payload** (payload)
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
-|message|text or blob|->|Message to be signed|required|
-|return|Object|<-|HMAC object||
+|payload|object|->|Object that contains full payload information|required|
+|return|object|<-|JWT object||
 
-This method is used to specify `message` to be signed.
+`JWT` **JWT.payload** (payloadName; payloadValue)
 
-When a message is already set, given text is appended to the original message.
+|Name|Type||Description||
+|-----|-----|-----|-----|-----|
+|payloadName|text|->|Payload parameter name to set|required|
+|payloadValue|text|->|Payload parameter value to set|required|
+|return|object|<-|JWT object||
 
-The message parameter can be of type text or blob.
+Used to set JWT payload to JWT object.
 
-Please note that when this function is called subsequently, type text and blob cannot be mixed. When text type is used in the first call, use text type in the following call.
+This function has two forms. One is accepting an object that contains full JWT payload information. And the other is, you can pass JWT payload field one by one.
+
+When the same payload field name is passed multiple times, the latter value is stored.
+
+---
+
+`JWT` **JWT.verify** ()
+
+|Name|Type||Description||
+|-----|-----|-----|-----|-----|
+|token|text|->|JWT token|required|
+|algorithm|text|->|Algorithm name used to sign the JWT token|required|
+|payload|object|<-|Object variable that receives decoded payload|optional|
+|extra|object|->|Extra verification values|optional|
+|return|boolean|<-|True if verified, otherwise false||
+
+This method parses given JWT `token` and verify it.
+
+If the test passes, it returns true, otherwise false. Also the payload parameter receives parsed payload.
+
+Note that the payload parameter must be initialized using `New object()` command in the caller method before verifying. Otherwise it will not receive the content.
+
+In the `algorithm` parameter, pass an algorithm that was used when generating the JWT. This value must match with the one in the JWT header. If not, verification fails.
+
+Then a key is queried using the alg and the kid specidfied in the JWT header. Then the signature is verified using the key.
+
+If "exp" and/or "nbf" claim are specified in the payload, they are checked.
+
+* exp  : (IntDate) Expiration Time, must after current IntDate
+* nbf  : (IntDate) Not Before, must before current IntDate
+
+IntDate is numeric value that represents the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time
+
+In the optional `extra` object type parameter, you can pass some elements that will invoke additional verification. Supported elements are:
+
+* iss  : (text) Issuer, case sensitive exact match
+* nonce: (text) Random value, case sensitive exact match
+
+If one of these are specified, each element is checked with the one in the payload. If one of the specified element does not included in the payload or does not match, verification fails.
+
+**Important note**:
+When generating JWT with `JWT.generate()` function, you must register `key` parameter. And the `key` must contains `alg` and `kid` attributes.
+
+By spec of this components, only `HS256` and `HS512` are supported for `alg` value. this means `none` is not supported. This is for security reason
+
+Also `kid` is mandatory even though it's use is optional by JWT specification. In this component, the `kid` is used to find a key from JWK set along with the `alg` value that was passed to `JWT.verify()` function. This way, this component try to avoid `alg` fixation and/or tampering attack.
