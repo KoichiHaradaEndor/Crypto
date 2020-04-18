@@ -170,8 +170,8 @@ In the optional `extra` object type parameter, you can pass some elements that w
 If one of these are specified, each element is checked with the one in the payload. If one of the specified element does not included in the payload or does not match, verification fails.
 
 **Important note**:
-When generating JWT with `JWT.generate()` function, you must register `key` parameter. And the `key` must contains `alg` and `kid` attributes.
+When generating JWT with `JWT.generate()` function, you must register `key` parameter beforehand.
 
-By spec of this components, only `HS256` and `HS512` are supported for `alg` value. this means `none` is not supported. This is for security reason
+By spec of this components, the `key` must contains `alg` and `kid` attributes, and only `HS256` and `HS512` are supported for `alg` value. this means `none` is not supported. This is for security reason
 
 Also `kid` is mandatory even though it's use is optional by JWT specification. In this component, the `kid` is used to find a key from JWK set along with the `alg` value that was passed to `JWT.verify()` function. This way, this component try to avoid `alg` fixation and/or tampering attack.
