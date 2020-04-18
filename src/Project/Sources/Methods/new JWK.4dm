@@ -4,7 +4,7 @@
 *
 * The JWK set is stored in Storage.
 * If it is not exists, the key set will be loaded from file
-* named "jwk.key" stored in the database folder.
+* named "jwk-secret.key" stored in the database folder.
 *
 * @return {Object} JWK object
 * @author HARADA Koichi
@@ -32,7 +32,7 @@ If (Storage:C1525.keys=Null:C1517)
 		
 	End use   // /Use (Storage)
 	
-	$keyFile_o:=Folder:C1567(fk database folder:K87:14;*).file("jwt.key")
+	$keyFile_o:=Folder:C1567(fk database folder:K87:14;*).file("jwk-secret.key")
 	If ($keyFile_o.exists)
 		
 		$keysJson_t:=$keyFile_o.getText()

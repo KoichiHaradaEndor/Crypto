@@ -1,68 +1,71 @@
-# HMAC
+# JWT
 
 ## Constructor
 
-`HMAC` **new HMAC** (message; key; algorithm)
+`JWT` **new JWT** (header; payload; key)
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
-|message|text or blob|->|Message to hash|optional|
-|key|text or blob|->|Key used to sign the message|optional|
-|algorithm|text or long|->|Digest algorithm|optional|
-|return|object|<-|HMAC object||
+|header|object|->|JWT header|optional|
+|payload|object|->|JWT payload|optional|
+|key|object|->|Signing algorithm|optional|
+|return|object|<-|JWT object||
 
-HMAC object is used to sign a `message` with the specified `key` and `algorothm`.
+JWT object is used to generate JSON Web Token.
 
-HMAC: Hash-based Message Authentication Code
+The constructor creates and returns JWT object. Then using member functions, you can add parameters and generate JWT.
 
-The constructor creates and returns HMAC object. Then using member functions, you can add parameters and generate signed message.
-
-The constructor can take optional parameters which is used to initialize message, key and algorithm.
+The constructor can take optional parameters which are used to initialize JWT parameters.
 
 Each parameter is explained in the description of the respective function.
 
 ### Example
 
-Initialize the object when creating HMAC object:
-
-```4D
-C_OBJECT($hmac_o)
-C_TEXT($signed_t)
-$hmac_o:=new HMAC("Sign this text";"sha256";"secret-key")
-$signed_t:=$hmac_o.hexDigest()
-```
-
 Step-by-step example:
 
 ```4D
-C_OBJECT($hmac_o)
-C_TEXT($signed_t)
-$hmac_o:=new HMAC()
-$hmac_o.algorithm("sha256")
-$hmac_o.key("secret-key")
-$hmac_o.message("Sign this text")
-$signed_t:=$hmac_o.hexDigest()
+C_OBJECT($jwt_o)
+C_TEXT($token_t)
+$jwt_o:=new JWT ()
+$jwt_o.header("typ";"JWT")
+$jwt_o.payload("iss";"joe")
+$jwt_o.payload("http://example.com/is_root";True)
+$jwt_o.key($key_o) // the $key_o is set using JWK.find()
+$token_t:=$jwt_o.generate()
 ```
 
 Call chain example:
 
 ```4D
-C_TEXT($signed_t)
-$signed_t:=new HMAC()\
-    .algorithm("sha256")\
-    .key("secret-key")\
-    .message("Sign this text")\
-    .hexDigest()
+C_TEXT($token_t)
+$token_t:=new JWT ()\
+    header("typ";"JWT")\
+    payload("iss";"joe")\
+    payload("http://example.com/is_root";True)\
+    key($key_o)\
+    generate()
+```
+
+If you are familiar with JWT spec, you may think `alg` header parameter is missing in the above example and it's an error. It is explained in the description of the JWT.header function.
+
+Verify a token:
+
+```4D
+C_OBJECT($jwt_o)
+C_TEXT($token_t)
+C_BOOLEAN($verified_b)
+// $token_t variable contains retrieved token
+$jwt_o:=new JWT ()
+$verified_b:=$jwt_o.verify($token_t;"HS256")
 ```
 
 ## Member function
 
-`HMAC` **HMAC.algorithm** (algorithm)
+`text` **JWT.generate** (algorithm)
 
 |Name|Type||Description||
 |-----|-----|-----|-----|-----|
-|algorithm|text or long|->|Digest algorithm|required|
-|return|object|<-|HMAC object||
+|return|text|<-|Signed JSON Web Token||
 
 This method sets `algorithm` parameter which is used when signing the message.
 
@@ -106,8 +109,8 @@ The key parameter can be of type text or blob.
 
 This method is used to specify `message` to be signed.
 
-The message parameter can be of type text or blob.
+When a message is already set, given text is appended to the original message.
 
-When a message is already set, new message is appended to the original message.
+The message parameter can be of type text or blob.
 
 Please note that when this function is called subsequently, type text and blob cannot be mixed. When text type is used in the first call, use text type in the following call.
