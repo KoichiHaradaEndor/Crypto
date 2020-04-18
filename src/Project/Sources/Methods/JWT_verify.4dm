@@ -29,7 +29,7 @@
 *
 * If one of these are specified, each element is checked
 * with the one in the payload. If one of the specified element
-* does not ineluded in the payload, verification fails.
+* does not included in the payload, verification fails.
 *
 * @param {Text} $1 JWT token
 * @param {Text} $2 Algorithm
