@@ -12,7 +12,7 @@ JWK object is used to store JWK (JSON Web Key) set and to query a key by specify
 
 The constructor creates and returns JWK object. Then using member functions, you can query a key object stored in JWK set.
 
-JWK set is a list of the JSON Web Keys. It is defined in the file named "jwk.key" stored in the host database folder whose structure is as follows:
+JWK set is a list of the JSON Web Keys. It is defined in the file named "jwk-secret.key" stored in the host database folder whose structure is as follows:
 
 ```JSON
 {"keys": [
