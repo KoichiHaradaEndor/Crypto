@@ -6,7 +6,7 @@
 			"HM_hexDigest",
 			"HM_key",
 			"HM_message",
-			"new HMAC"
+			"new Hmac"
 		]
 	},
 	"JWK": {
