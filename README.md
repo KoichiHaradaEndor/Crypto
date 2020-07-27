@@ -1,3 +1,5 @@
+This component is archived since 4D v18 R4 provides CryptoKey class.
+
 # Crypto
 
 ## Overview
